@@ -13,6 +13,15 @@ namespace Popup2App
             InitializeComponent();
         }
 
+        // Repeat issue
+
+        private async void OnRepeatClick(object? sender, EventArgs e)
+        {
+            IsEnabled = false;
+            await this.ShowPopupAsync(new SamplePopup(), new PopupOptions { Shape = null, Shadow = null });
+            IsEnabled = true;
+        }
+
         // Overlay issue
 
         private async void OnWithOverlayClick(object? sender, EventArgs e)
@@ -29,9 +38,7 @@ namespace Popup2App
 
         private async void OnWithoutOverlayClick(object? sender, EventArgs e)
         {
-            Debug.WriteLine("** start");
             await this.ShowPopupAsync(new SamplePopup(), new PopupOptions { Shape = null, Shadow = null });
-            Debug.WriteLine("** end");
         }
 
         // No border issue

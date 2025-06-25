@@ -2,9 +2,26 @@
 <ContentPage
     x:Class="Popup2App.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:app="clr-namespace:Popup2App"
+    x:DataType="{x:Type app:MainPageViewModel}">
+
+    <ContentPage.BindingContext>
+        <app:MainPageViewModel />
+    </ContentPage.BindingContext>
 
     <VerticalStackLayout Padding="30" Spacing="25">
+
+        <Button
+            Clicked="OnRepeatClick"
+            HorizontalOptions="Fill"
+            Text="Repeat" />
+
+        <Button
+            Clicked="OnRepeatClick"
+            Command="{Binding DialogCommand}"
+            HorizontalOptions="Fill"
+            Text="Repeat MVVM" />
 
         <Button
             Clicked="OnWithOverlayClick"
